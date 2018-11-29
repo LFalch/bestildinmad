@@ -3,35 +3,37 @@
 function section(){ ?>
 <h1 class="title">Oversigt</h1>
 <table class="table">
-        <thead>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-if(isset($_POST['submit'])){
-include 'inc/mysql.php';
-$conn = new_conn();
-    
-    
-    
-            
-            $results = $conn->query("SELECT `id`, `name`, `price`, `img_file` FROM vare");
-            while($row = mysqli_fetch_assoc($results)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['name']; ?></td>
-                </tr>
+    <thead>
+      <tr>
+        <th>pris</th>
+        <th>Vare</th>
+        <th>Antal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        for ($i=0; $i < count($vareArray); $i++) {
+          $id = $vareArray[$i][0];
 
-            <?php } ?>
-            </tbody>
-            </table>
-<?php
+          $query = $conn->query("SELECT `id`, `name`, `price`, `img_file` FROM vare");
+          $bestil = $query->fetch_all();
+
+          for ($j=0; $j < count($vare); $j++) {
+            echo "<tr>";
+            echo "<td>$id</td>";
+            echo "<td>".$vare[$j][1]."</td>";
+            echo "<td>".$vare[$j][2]."</td>";
+            echo "</tr>";
+          }
+        }
+      ?>
+    </tbody>
+  </table>
+<?php } else { ?>
+  <p>Log venligst ind for at bestille mad</p>
+<?php }
 }
-?>
+
 <table class="table">
  
 
