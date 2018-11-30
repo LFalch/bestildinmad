@@ -22,6 +22,7 @@ function section(){ ?>
     </div>
   </form>
 <?php }
+//vi opstiller en form, som vi senere kører php på, her laver vi bare felterne
 
 function title(){
   echo "Bestil Din Mad - Log ind";

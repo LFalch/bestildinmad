@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
   $usrPwd = hash("sha256", $pwd.$salt);
 
   $query = $conn->query("INSERT INTO `bruger` (`name`, `brugernavn`, `email`, `password`, `salt`) VALUES ('$name', '$usr', '$email', '$usrPwd', '$salt')");
-
+//De forskellige strings, som er blevet skrevet i formen, bliver escaped, hvilket vil sige, at man ikke kan kan lave sql injection. 
   header("Location: /?p=login");
   exit;
 } else {

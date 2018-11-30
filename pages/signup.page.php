@@ -33,6 +33,7 @@ function section(){ ?>
     </div>
   </form>
 <?php }
+//Her laver vi formen, som vores sigup.php senere tager at og bruger, når den skal indsætte brugerdataen som en ny bruger
 
 function title(){
   echo "Bestil Din Mad - Opret Bruger";

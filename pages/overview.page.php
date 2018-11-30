@@ -1,12 +1,16 @@
 <?php
 include 'inc/mysql.php';
+//vi inkludere php siden som opretter forbindelse til databasen
 
 function section(){
   $loggedIn = isset($_SESSION['id']);
 ?>
+//tjekker om brugeren er logget ind, alt på siden sker kun, hvis man er logget ind
+
 <h1 class="title">Oversigt</h1>
 <a class="button" onclick="order()">Bestil</a>
 <table class="table">
+//vi opretter et html tabel, med classen "table" fra vores css framework
     <thead>
       <tr>
         <th>Vare</th>
@@ -22,6 +26,7 @@ function section(){
         $conn = new_conn();
         $query = $conn->query('SELECT `id`, `name`, `price`, `img_file`, `stock` FROM vare');
         $vareArray = $query->fetch_all();
+    //Vi tager de relavante info fra tabellen i databasen, og putter dem i en variable som vi så laver til et array
 
         for ($i=0; $i < count($vareArray); $i++) {
           $id = $vareArray[$i][0];
@@ -36,12 +41,15 @@ function section(){
           echo "<td>$pris</td>";
           echo "<td>$stock</td>";
           echo '<td>0</td>';
+        //vi skriver de forskellige elementer ind i en html table
+        
           if ($loggedIn) {
             echo '<td>';
             $attr = "onclick=\"add($id)\"";
             if ($stock == 0) {
               $attr = 'disabled';
             }
+        //hvis man er logget ind, kan man se "tilføj" knappen, og kan tilføje vare, man kan ikke bruge tilføj knappen, hvis der ikke er nogen vare tilbage
             echo "<a class=\"button is-primary\" $attr>
   <span class=\"icon is-small\">
     <i class=\"fas fa-plus\"></i>
@@ -52,6 +60,7 @@ function section(){
     <i class=\"fas fa-minus\"></i>
   </span>
 </a>";
+    //her får de to, tilføj og fjern, knapper deres udsende. Det bliver klaret af vores css framework, som har alle de classer som vi bruger
             echo '</td>';
           } else {
             echo '<td>&nbsp;</td';
