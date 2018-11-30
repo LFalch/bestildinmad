@@ -51,6 +51,14 @@
       <a href="/?p=order" class="navbar-item">
         Bestillinger
       </a>
+      <?php
+      session_start();
+      if ($_SESSION['id'] and $_SESSION['rolle'] == 'kantinepersonale') { ?>
+      <a href="/?p=lager" class="navbar-item">
+        Lager
+      </a>
+      <?php }
+      ?>
 
       <div class="navbar-end">
         <div class="navbar-item">
