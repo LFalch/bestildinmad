@@ -5,12 +5,12 @@ include 'inc/mysql.php';
 function section(){
   $loggedIn = isset($_SESSION['id']);
 ?>
-//tjekker om brugeren er logget ind, alt på siden sker kun, hvis man er logget ind
+<!--//tjekker om brugeren er logget ind, alt på siden sker kun, hvis man er logget ind-->
 
 <h1 class="title">Oversigt</h1>
 <a class="button" onclick="order()">Bestil</a>
 <table class="table">
-//vi opretter et html tabel, med classen "table" fra vores css framework
+<!--vi opretter et html tabel, med classen "table" fra vores css framework-->
     <thead>
       <tr>
         <th>Vare</th>
@@ -42,7 +42,7 @@ function section(){
           echo "<td>$stock</td>";
           echo '<td>0</td>';
         //vi skriver de forskellige elementer ind i en html table
-        
+
           if ($loggedIn) {
             echo '<td>';
             $attr = "onclick=\"add($id)\"";
