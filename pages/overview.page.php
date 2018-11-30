@@ -10,6 +10,7 @@ function section(){ ?>
         <th>Billede</th>
         <th>Pris</th>
         <th>Antal</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@ function section(){ ?>
           echo "<td><img src=\"/img/$img\" class=\"image is-64x64\"></td>";
           echo "<td>$pris</td>";
           echo "<td>$stock</td>";
+          echo "<td><a class=\"button\" href=\"/order.php?id=$id\">Tilføj vare</a></td>";
           echo "</tr>";
         }
       ?>
@@ -38,6 +40,6 @@ function section(){ ?>
 <?php }
 
 function title(){
-  echo "Bestil Din Mad - Forside";
+  echo "Bestil Din Mad - Oversigt";
 }
 ?>
