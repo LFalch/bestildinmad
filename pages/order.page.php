@@ -84,13 +84,6 @@ function section(){ ?>
   }
 } else {
 ?>
-<a class="button is-danger">
- <span class="icon is-small">
-   <i class="fas fa-times"></i>
- </span>
- <span>Fjern bestilling</span>
-</a>
-
   <p>Log venligst ind for at se bestilt mad</p>
 <?php }
 }
