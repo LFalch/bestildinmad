@@ -1,7 +1,9 @@
 <?php
 include 'inc/mysql.php';
 
-function section(){ ?>
+function section(){
+  $loggedIn = isset($_SESSION['id']);
+?>
 <h1 class="title">Oversigt</h1>
 <table class="table">
     <thead>
@@ -26,13 +28,21 @@ function section(){ ?>
           $img = $vareArray[$i][3];
           $stock = $vareArray[$i][4];
 
-          echo "<tr>";
+          echo '<tr>';
           echo "<td>$name</td>";
           echo "<td><img src=\"/img/$img\" class=\"image is-64x64\"></td>";
           echo "<td>$pris</td>";
           echo "<td>$stock</td>";
-          echo "<td><a class=\"button\" href=\"/order.php?id=$id\">Tilføj vare</a></td>";
-          echo "</tr>";
+          if ($loggedIn) {
+            $dis = '';
+            if ($stock == 0) {
+              $dis = ' disabled';
+            }
+            echo "<td><a class=\"button\" href=\"/order.php?id=$id\"$dis>Tilføj vare</a></td>";
+          } else {
+            echo '<td>&nbsp;</td';
+          }
+          echo '</tr>';
         }
       ?>
     </tbody>
@@ -40,6 +50,6 @@ function section(){ ?>
 <?php }
 
 function title(){
-  echo "Bestil Din Mad - Oversigt";
+  echo 'Bestil Din Mad - Oversigt';
 }
 ?>
