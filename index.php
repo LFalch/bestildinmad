@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="/css/bulma.min.css">
   <link rel="styleskeet" href="/looks.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <?php if(function_exists('head')) {
+      head();
+  } ?>
 </head>
 <body>
   <section class="section">
