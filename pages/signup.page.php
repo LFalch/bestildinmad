@@ -1,3 +1,6 @@
+
+include 'inc/mysql.php';
+
 <?php
 
 function section(){ ?>
