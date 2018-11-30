@@ -2,7 +2,7 @@
 session_start();
 
 function section(){ ?>
-  <h1 class="title">Bestil mad!</h1>
+  <h1 class="title">Bestilte varer</h1>
 <?php if ($_SESSION['id']) {
   $usrId = $_SESSION['id'];
   include 'inc/mysql.php';
@@ -45,6 +45,6 @@ function section(){ ?>
 }
 
 function title(){
-  echo "Bestil Din Mad - Bestil mad";
+  echo "Bestil Din Mad - Bestillinger";
 }
 ?>
