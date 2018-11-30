@@ -34,11 +34,11 @@ function section(){
           echo "<td>$pris</td>";
           echo "<td>$stock</td>";
           if ($loggedIn) {
-            $dis = '';
+            $attr = "href=\"/order.php?id=$id\"";
             if ($stock == 0) {
-              $dis = ' disabled';
+              $attr = 'disabled';
             }
-            echo "<td><a class=\"button\" href=\"/order.php?id=$id\"$dis>Tilføj vare</a></td>";
+            echo "<td><a class=\"button\" $attr>Tilføj vare</a></td>";
           } else {
             echo '<td>&nbsp;</td';
           }
