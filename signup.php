@@ -13,9 +13,10 @@ if(isset($_POST['submit'])){
     $salt .= $characters[rand(0, strlen($characters) - 1)];
   }
   $usrPwd = hash("sha256", $pwd.$salt);
+  //passwords skal have et hash og noget salt, som kryptere hvad bruger skriver, og søger for, at det ikke kan dekrypteres.
 
   $query = $conn->query("INSERT INTO `bruger` (`name`, `brugernavn`, `email`, `password`, `salt`) VALUES ('$name', '$usr', '$email', '$usrPwd', '$salt')");
-//De forskellige strings, som er blevet skrevet i formen, bliver escaped, hvilket vil sige, at man ikke kan kan lave sql injection. 
+//De forskellige strings, som er blevet skrevet i formen, bliver escaped, hvilket vil sige, at man ikke kan kan lave sql injection. Herefter bliver det skrevet ind i databasen
   header("Location: /?p=login");
   exit;
 } else {
